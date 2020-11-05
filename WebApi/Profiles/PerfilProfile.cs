@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Dots;
+using Dtos;
 using Models;
 
 namespace WebApi.Profiles

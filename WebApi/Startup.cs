@@ -1,19 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Data;
 using Data.Contratos;
 using Data.Repositorios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Models;
 using Serilog;
 
 namespace WebApi
@@ -38,13 +34,16 @@ namespace WebApi
             services.AddDbContext<TiendaDbContext>(options =>
                options.UseSqlServer(_configuration.GetConnectionString("TiendaDb"))
             );
+            services.AddScoped<IRepositorioGenerico<Perfil>, PerfilesRepositorio>();
             services.AddScoped<IProductosRepositorio, ProductosRepositorio>();
+            services.AddScoped<IOrdenesRepositorio, OrdenesRepositorio>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
-            //loggerFactory.AddSerilog();
+            loggerFactory.AddSerilog();
 
             if (env.IsDevelopment())
             {

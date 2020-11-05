@@ -6,7 +6,6 @@ using Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Data.Repositorios
@@ -17,7 +16,7 @@ namespace Data.Repositorios
         private readonly TiendaDbContext _contexto;
         private readonly ILogger _logger;
 
-        public ProductosRepositorio(TiendaDbContext contexto, ILogger logger)
+        public ProductosRepositorio(TiendaDbContext contexto, ILogger<ProductosRepositorio> logger)
         {
             _contexto = contexto;
             _logger = logger;

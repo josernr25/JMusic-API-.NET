@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Dots
+namespace Dtos
 {
 
     public class ProductoDto

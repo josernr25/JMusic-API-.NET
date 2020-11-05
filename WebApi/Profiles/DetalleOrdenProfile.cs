@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Dots;
+using Dtos;
 using Models;
 
 namespace WebApi.Profiles
@@ -8,7 +8,10 @@ namespace WebApi.Profiles
     {
         public DetalleOrdenProfile()
         {
-            this.CreateMap<DetalleOrden, DetalleOrdenDto>().ReverseMap();
+            this.CreateMap<DetalleOrden, DetalleOrdenDto>()
+                .ForMember(u => u.Producto, p => p.MapFrom(u => u.Producto.Nombre))
+                .ReverseMap()
+                .ForMember(u => u.Producto, p => p.Ignore());
         }
     }
 }

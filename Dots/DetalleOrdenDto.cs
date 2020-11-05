@@ -1,4 +1,4 @@
-﻿namespace Dots
+﻿namespace Dtos
 {
 
     public class DetalleOrdenDto

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Data.Contratos;
-using Dots;
+using Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
