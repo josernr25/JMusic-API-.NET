@@ -8,5 +8,6 @@ namespace Data.Contratos
         Task<bool> CambiarContrasena(Usuario usuario);
         Task<bool> CambiarPerfil(Usuario usuario);
         Task<bool> ValidarContrasena(Usuario usuario);
+        Task<(bool resultado, Usuario usuario)> ValidarDatosLogin(Usuario datosLogin);
     }
 }

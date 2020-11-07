@@ -140,5 +140,27 @@ namespace Data.Repositorios
             }
             return false;
         }
+
+
+        public async Task<(bool resultado, Usuario usuario)> ValidarDatosLogin(Usuario datosLogin)
+        {
+            var usuarioBd = await _dbSet
+                                    .Include(u => u.Perfil)
+                                    .FirstOrDefaultAsync(u => u.Username == datosLogin.Username);
+            if (usuarioBd != null)                                                                     
+            {
+                try
+                {
+                    var resultado = _passwordHasher.VerifyHashedPassword(usuarioBd, usuarioBd.Password, datosLogin.Password);
+                    return (resultado == PasswordVerificationResult.Success ? true : false, usuarioBd);
+                }
+                catch (Exception excepcion)
+                {
+                    _logger.LogError($"Error en {nameof(ValidarDatosLogin)}: " + excepcion.Message);
+                }
+            }
+            return (false, null);
+        }
+
     }
 }

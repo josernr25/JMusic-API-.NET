@@ -9,9 +9,11 @@ using Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JMusik.WebApi.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     [Route("api/[controller]")]
     [ApiController]
     public class PerfilesController : ControllerBase
