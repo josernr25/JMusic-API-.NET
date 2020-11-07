@@ -1,7 +1,7 @@
 # JMusic-API-.NET
 ## Api desarrollada con ASP.NET Core 3.0 ##
  
-  **WebApi para una tienda de instrumentos musicales que posee las entidades: *
+  **WebApi para una tienda de instrumentos musicales que posee las entidades:
 
    *1- Productos
   
@@ -12,15 +12,15 @@
    *4- Perfiles
   
   
-**Imprementa autentificacion con JWT y autorizacion con Roles.**
+**Imprementa autentificacion con JWT y autorizacion con Roles.
 
 
 ## PARA USAR CON POSTMAN ##
 
-**Importar en Postman el archivo JMusic JWT.postman_collection.json**
+**Importar en Postman el archivo JMusic JWT.postman_collection.json
 
 
-**Actualizar las variables de la colleccion importada: **
+**Actualizar las variables de la colleccion importada: 
 
    **url:** la URL base, EJ: https://localhost:5001/api
   
