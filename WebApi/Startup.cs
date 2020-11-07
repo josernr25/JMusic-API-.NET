@@ -4,6 +4,7 @@ using Data.Contratos;
 using Data.Repositorios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,10 +35,12 @@ namespace WebApi
             services.AddDbContext<TiendaDbContext>(options =>
                options.UseSqlServer(_configuration.GetConnectionString("TiendaDb"))
             );
+
             services.AddScoped<IRepositorioGenerico<Perfil>, PerfilesRepositorio>();
             services.AddScoped<IProductosRepositorio, ProductosRepositorio>();
             services.AddScoped<IOrdenesRepositorio, OrdenesRepositorio>();
-
+            services.AddScoped<IUsuariosRepositorio, UsuariosRepositorio>();
+            services.AddScoped<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
